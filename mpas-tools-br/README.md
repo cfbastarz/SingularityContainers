@@ -1,6 +1,6 @@
 # mpas-tools-br
 
-This is a [Singularity](https://docs.sylabs.io/guides/3.7/user-guide/index.html) definition file to build a Singularity Image Format (SIF) for use with the [MPAS-BR](https://github.com/pedrospeixoto/MPAS-BR) distribution. You can use Singularity to download a base Linux image that can be custom-tailored to install the software you need in the container ([see the SingularityRecipe repository with an example](https://github.com/cfbastarz/SingularityRecipe)). The instructions used in this README file use the provided definition file `mpas-tools-br.def` to build the container image for use with the MPAS-BR repository.
+This is a [Singularity](https://docs.sylabs.io/guides/3.7/user-guide/index.html) definition file to build a Singularity Image Format (SIF) for use with the [MPAS-BR](https://github.com/pedrospeixoto/MPAS-BR) distribution. You can use Singularity to download a base Linux image that can be custom-tailored to install the software you need in the container (see the [SingularityRecipe](https://github.com/cfbastarz/SingularityRecipe) with and example). The instructions used in this README file use the provided definition file [`mpas-tools-br.def`](https://github.com/cfbastarz/SingularityContainers/blob/main/mpas-tools-br/mpas-tools-br.def) to build the container image for use with the MPAS-BR repository.
 
 The key idea is to provide a base system as a common ground, where all users will find the tools needed to run the MPAS-BR software. By doing so, users can avoid common mistakes in system configuration.
 
@@ -106,7 +106,7 @@ brew install --cask vagrant
 brew install --cask vagrant-manager
 ```
 
-At this point, you will have the software needed to run a virtualization of Linux. Bear in mind that the Windows Subsystem for Linux (WSL) is something similar, meaning that running Linux in Windows and Mac OS is just a virtualization. But in the case of Mac OS, Singularity needs to run inside a virtualized Linux, and if you want to run the `mpas-tools-br` container, you will be adding an extra layer of virtualization. But it works.
+At this point, you will have the software needed to run a virtualization of Linux. Bear in mind that the Windows Subsystem for Linux (WSL) is something similar, meaning that running Linux in Windows and Mac OS is just a virtualization. But in these cases, Singularity needs to run inside a virtualized Linux, and if you want to run the `mpas-tools-br` container, you will be adding an extra layer of virtualization. But it works.
 
 Next, bootstrap a Linux base system where Singularity will be installed:
 
@@ -137,7 +137,7 @@ In this section, it shows how to use the `mpas-tools-br_latest.sif` container to
 First, open a shell environment from the container:
 
 ```bash
-singularity shell -e --env DISPLAY=$DISPLAY --bind $HOME:$HOME mpas-tools-br.sif
+singularity shell -e --env DISPLAY=$DISPLAY --bind $HOME:$HOME mpas-tools-br_latest.sif
 ```
 
 **Notes:**
@@ -174,7 +174,7 @@ At this point, you already have all the software needed to run the MPAS-BR. By f
 1. Compile the MPAS-BR code:
 
     ```bash
-    cd MPAS-BR
+    cd $HOME/MPAS-BR
     make gfortran CORE=init_atmosphere PNETCDF=/usr
     make gfortran CORE=atmosphere AUTOCLEAN=true PNETCDF=/usr
     ```
