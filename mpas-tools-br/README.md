@@ -1,6 +1,6 @@
 # mpas-tools-br
 
-The files on this folder were merged into the [MPAS-BR](https://github.com/pedrospeixoto/MPAS-BR/tree/master/local_software/mpas-tools-br) repository. Please, check the MPAS-BR repository for updates.
+_**NOTE:** THE FILES ON THIS FOLDER WERE MERGED INTO THE [MPAS-BR](https://github.com/pedrospeixoto/MPAS-BR/tree/master/local_software/mpas-tools-br) REPOSITORY. PLEASE, CHECK THE MPAS-BR REPOSITORY FOR UPDATES._
 
 ---
 
